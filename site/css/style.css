@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Montserrat:wght@100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+#container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    background-color: #07c;
+}
+
+#logo {
+    float: left;
+    width: 250px;
+    height: 100px;
+    line-height: 100px;
+    padding-left: 20px;
+}
+
+#logo h1 {
+    font-family: 'Merienda', cursive;
+    font-weight: 700;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 0 -1px 0 #222;
+}
+
+nav {
+    float: right;
+    width: 900px;
+    height: 100px;
+    padding-top: 40px; /* 메뉴에 padding을 줘서 아래로 내리기 */
+}
+
+#topMenu {
+    height: 60px; /* 총 높이 100px에서 padding 40px 제외한 남은 높이*/
+}
+
+#topMenu > li {
+    float: left; /* 메뉴 항목을 왼쪽으로 플로팅해서 한 줄에 여러 개가 들어가도록 함 */
+    position: relative; /* 자식 요소의 기준점. 자기 자신을 기준으로 위치를 잡음 */
+}
+#topMenu > li >a {
+    display: block; /*block이어야 요소 앞뒤로 줄바꿈이 가능해진다.*/
+    color: #fff; /* 글자 색 */
+    font-weight: 600; /* 글자 굵기 */
+    text-shadow: 0 1px #07c; /*글자 그림자 */
+    padding: 20px 60px; /*padding을 넣어 메뉴 사이 간격, 위치 조절*/
+}
+#topMenu > li > a > span {
+    font-size: 0.5em; /*화살표 크기 조정 */
+}
+#topMenu > li > a:hover {
+    color: #000; /* 메인 메뉴 hover 시 검정으로 글씨 색 바뀜 */
+    text-shadow: 0 -1px #07c; /*hover 시 그림자 지정*/
+}
+#topMenu >li >ul {
+    display: none; /* 서브메뉴 목록을 기본으로 감춘다. */
+    position: absolute;/* 부모 요소인 li 태그를 기준으로 위치 설정 */
+    width: 160px; /* 서브메뉴 넓이 */
+    background-color: rgba(255, 255, 255, 0.6); /*서브메뉴 배경 색상 */
+    left: 20px; /* 서브메뉴 왼쪽으로 치우친 것 오른족 방향으로 조정 */
+    margin: 0;
+}
+#topMenu > li > ul > li {
+    padding: 10px 10px 10px 30px; /* 서브메뉴 항목 padding 지정 */
+}
+#topMenu > li > ul > li > a {
+    font-size: 14px;
+    padding: 10px;
+    color: #000;
+}
+#topMenu > li:hover > ul {
+    display: block; /* 줄바꿈이 잘 일어나도록 block으로 지정 */
+    z-index: 10;/* 슬라이드 쇼에 가리지 않도록 최상단에 서브메뉴를 올린다, */
+}
+#topMenu > li > ul > li > a:hover {
+    color: #f00;  /*서브 메뉴 hover 시 색상 */
+}
+
+#slideShow {
+    clear: both;
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+#slides {
+    position: absolute;
+}
+#slides > img {
+    width: 100%;
+    float: left;
+}
+button {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    border: none;
+    padding: 20px;
+    background-color: transparent;
+    color: #000;
+    font-weight: 800;
+    font-size: 24px;
+    opacity: 0.5;
+}
+#prev {
+    left: 0;
+}
+#next {
+    right: 0;
+}
+button:hover {
+    background-color: #222;
+    color: #fff;
+    opacity: 0.6;
+    cursor: pointer;
+}
+button:focus {
+    outline: 0;
+}
+#contents {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+}
+
+#tabMenu {
+    float: left;
+    width: 600px;
+    height: 100%;
+}
+#tabMenu input[type="radio"] {
+    display: none;
+}
+#tabMenu label {
+    display: inline-block;
+    margin: 0 0;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #aaa;
+    border: 1px solid transparent;
+}
+#tabMenu label:hover {
+    color: #222;
+    cursor: pointer;
+}
+#tabMenu input:checked + label{
+    color: #b00;
+    border: 1px solid #ddd;
+    background-color: #eee;
+}
+.tabContent {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+}
+.tabContent h2{
+    display: none;
+}
+#notice ul {
+    list-style: disc;
+    margin-left: 30px;
+}
+#notice ul li {
+    font-size: 16px;
+    line-height: 2.5;
+}
+#gallery ul li {
+    display: inline; /*이미지 한 줄에 여러개 배치*/
+}
+#tab1:checked ~ #notice,
+#tab2:checked ~ #gallery {
+    display: block;
+}
+#links {
+    float: right;
+    width: 600px;
+    height: 100%;
+    margin-top: 45px;
+}
+#links ul{
+    padding: 0;
+    overflow: hidden;
+}
+#links ul li {
+    float: left;
+    width: 33%;
+    text-align: center;
+    margin: 10px 0;
+}
+#links ul li a span {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: 1px solid #ddd;
+    line-height: 150px;
+}
+#quick-icon1 {
+    background-image: url('../images/icon-1.jpg');
+}
+#quick-icon2 {
+    background-image: url('../images/icon-2.jpg');
+}
+#quick-icon3 {
+    background-image: url('../images/icon-3.jpg');
+}
+#links ul li a p {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #666;
+}
+footer {
+    width: 100%;
+    height: 100px;
+    border-top: 2px solid #222;
+}
+#bottomMenu {
+    width: 100%;
+    height: 20px;
+    position: relative;
+}
+#bottomMenu ul {
+    margin-top: 15px;
+}
+#bottomMenu ul li {
+    float: left;
+    padding: 5px 20px;
+    border-right: 1px solid #ddd;
+}
+#bottomMenu ul li:last-child {
+    border-right: none;
+}
+#bottomMenu ul li a, #bottomMenu ul li a:visited {
+    font-size: 15px;
+    color: #666;
+}
+#sns {
+    position: absolute;
+    right: 0;
+}
+#sns ul li {
+    border: none;
+    padding: 5px;
+}
+#company {
+    clear:left;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+p {
+    font-size: 14px;
+    color: #aaa;
+}
